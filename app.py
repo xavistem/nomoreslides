@@ -26,9 +26,9 @@ st.set_page_config(
 
 # CONTENIDO DE LA SIDEBAR
 with st.sidebar:
-    # 1. Logo (en style='width y height' se puede ajustar), cambiar el logo de la carpeta de assets y cambiar en la siguiente línea de código el nombre del archivo después de assets/
+    # 1. Logo (en style='width y height' se puede ajustar), cambiar el logo de la carpeta de assets y que tenga el título de logo
     # Es mejor usar el logo con el fondo transparente. It is better to use a png with a transparent background
-    logo_path = "assets/logo-vanguard.png"
+    logo_path = "assets/logo.png"
     try:
         with open(logo_path, "rb") as image_file:
             encoded_logo = base64.b64encode(image_file.read()).decode()
@@ -51,6 +51,38 @@ with st.sidebar:
             """,
             unsafe_allow_html=True,
         )
+
+    st.markdown(
+    """
+    <style>
+        /* Aplica el fondo, ancho y quita scroll */
+        section[data-testid="stSidebar"] {
+            background-color: #e7f5ff;
+            width: 180px;
+            overflow: hidden !important;
+        }
+
+        /* Fuerza que el contenido interno tampoco tenga scroll */
+        section[data-testid="stSidebar"] > div:first-child {
+            overflow: hidden !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+    )
+
+# Reemplaza el apartado anterior por este si quieres que haya un scroll vertical en la side bar:
+# Copia y pega desde st.markdown hasta el paréntesis de cierre y quitale los comentarios
+# st.markdown(
+#     """
+#     <style>
+#         section[data-testid="stSidebar"] {
+#             background-color: #e7f5ff;
+#         }
+#     </style>
+#     """,
+#     unsafe_allow_html=True,
+# )
 
     # 2. Menú de Opciones
     option_titles_en = [
@@ -146,13 +178,9 @@ if st.session_state.current_page_key == "Overview":
         df = pd.DataFrame([
             {
             "city": "Barcelona", "lat": 41.3851, "lon": 2.1734,
-            "github": "https://github.com/xavistem",
-            "label": "@xavistem"
             },
             {
             "city": "Madrid",    "lat": 40.4168, "lon": -3.7038,
-            "github": "https://github.com/JimenezRoDA",
-            "label": "@JimenezRoDA"
             }
         ])
 
@@ -196,13 +224,13 @@ if st.session_state.current_page_key == "Overview":
     elif st.session_state.ov_page == 1:
         st.subheader("📑 Data Sources & Project Timeline")
         left, right = st.columns(2)
-        with left: # Modificar el apartado siguiente, con los df utilizados
+        with left: # Modificar el apartado siguiente, con los df utilizados en tu proyecto
             st.markdown("""
 **Data Sources Used**  
-- `df_final_demo`  
-- `df_final_experiment_clients`  
-- `df_final_web_data_pt_1m`  
-- `df_final_web_data_pt_2`  
+- `df_1`  
+- `df_2`  
+- `df_3`  
+- `df_4`  
 """)
         with right: #M Modificar este apartado poniendo un calendario solo y marcando el inico y el final, o poner dos, eso ya depende de cada proyecto
             st.markdown("**Project Active Dates**")
@@ -233,22 +261,20 @@ if st.session_state.current_page_key == "Overview":
         left_col, right_col = st.columns([2, 1])
         with left_col:
             st.markdown("""
-    ### 🎯 Vanguard Digital Redesign: Assessing the Impact with A/B Testing
+    ### 🎯 Title of the objective of the project
 
-    Vanguard, one of the world’s most influential investment firms, has undertaken an ambitious redesign of its web experience.  
-    The goal is clear: to improve the **conversion process for new financial products** by making it more **intuitive, efficient, and user-focused**.
+    Definition of the company or the project  
+    The goal is clear:
 
-    To validate this change, an A/B test was conducted:
-    - 🧪 **Control group** accessed the original design  
-    - 🚀 **Test group** interacted with the newly redesigned version
+    Othe things:
+    - X 
+    - X
 
     ---
 
     #### 📊 Key Metrics Analyzed:
-    - Completion rate  
-    - First-attempt completion rate  
-    - Average time (total and per step)  
-    - Errors within the funnel
+    - X
+    - X
 
     #### 🎯 Success Criterion:
     > **Increase the completion rate by at least 5%.**
@@ -257,13 +283,13 @@ if st.session_state.current_page_key == "Overview":
 
     On this page, we will explore the experiment data, analyze key metrics, identify behavioral patterns, and answer a fundamental question:
 
-    > 🧠 *Does the redesign truly enhance the user experience…  
-    > or is it just an aesthetic upgrade with no real impact?*
+    > 🧠 *Firs part of the question  
+    > Second part of the question?*
 
-    👉 Join us in this analysis to discover whether the new design makes a meaningful difference in site performance.
+    👉 Join us in this analysis to discover X.
             """)
-        with right_col:
-            st.image("assets/overview.png", use_column_width=True)
+        with right_col: # Aquí puedes incluir una imagen que pongas en la carpeta de assets y titules image1
+            st.image("assets/image1.png", use_column_width=True)
 
 
 elif st.session_state.current_page_key == "Interactive Analysis":
@@ -453,53 +479,53 @@ elif st.session_state.current_page_key == "Conclusions":
     st.title("🔍 Conclusions")
 
     # Mete este apartado dentro de un expander para que no resulte abrumador a primera vista, cambiar el texto según el proyecto / Wrap in an expander so it's not overwhelming at first glance
+    # Ahora mismo hay unos subapartados sugeridos, pero se puede escribir o incluir lo que quiera el usuario
     with st.expander("Show Summary of Findings", expanded=False):
         st.markdown("""
-The digital redesign (**Test group**) has shown **statistically significant improvements** in key aspects of the process, but it **does not fully meet all operational effectiveness criteria** defined by Vanguard.  
+This (**Test group**) has shown **statistically significant improvements** in..., but it **does not fully meet all operational effectiveness criteria** defined by X.  
 Below is a summary of the final trade-off between the two versions:
 """)
 
         # Clear Advantages
         st.markdown("### ✅ Clear Advantages of the Test Group")
         st.markdown("""
-- **Higher completion rate**: 69.3% vs. 65.6% (p < 0.001)  
-- **Lower overall technical error rate**: 0.076% vs. 0.193% (p < 0.001)  
-- **Critical “confirm” step errors** reduced from 0.577% to 0.066%  
-  > +0.51 pp improvement, 95% CI mostly above the minimum threshold  
+- **X**:   
+- **X**:  
+- **Critical “confirm” step errors** reduced from x to x
+  > +0.5 pp improvement, 
 """)
 
         # Limitations
         st.markdown("### ⚠️ Limitations of the Test Group")
         st.markdown("""
-- **Lower first-attempt completion**: 43.7% vs. 47.4%  
-  > Indicates higher friction and reduced initial clarity  
-- **Slightly higher average total completion time** (p < 0.001)  
-  > Medians nearly identical → practically similar efficiency  
-- **Slower performance** in key steps  
-  - Step 1: +5 seconds  
-  - Confirm: +23 seconds  
-  > Potential bottlenecks introduced by redesign  
+- **X**: 43.7% vs. 47.4%  
+  > Indicates...  
+- **X**  
+  > X → X 
+- **X** in... 
+  - Xds  
+  - X 
+  > X  
 """)
 
         # Hypotheses & Business Considerations
         st.markdown("### 🧠 Hypotheses & Business Considerations")
         st.markdown("""
-- Some improvements exceed statistical significance but **fall short of Vanguard’s 5% cost-benefit threshold**  
-  > e.g. +3.7 pp completion gain vs. 5 pp success criterion  
-- **Exception**: “Confirm”-step error reduction **does** surpass the threshold → clear operational gain  
+- Some improvements...  
+  > e.g.   
+- **Exception**:   
 """)
 
         # Final Recommendation
         st.markdown("### 🧭 Final Recommendation")
         st.markdown("""
-It is recommended to **adopt the Test redesign** as the new standard—but **with targeted optimizations** in the **Step 1** and **Confirm** stages, where friction increased:
+It is recommended to **X**:
 
-> - Enhance upfront guidance and contextual cues  
-> - Streamline interactions in Step 1 to reduce delays  
-> - Maintain technical robustness to keep error rates low  
+> - X  
+> - X
+> - X
 
-The new design **stabilizes the process**, **reduces technical errors**, and **increases overall completions**, yet requires **improved clarity** to boost first-attempt success.  
-This represents a **solid foundation** for future iterations; we advise a **second optimization phase** focused on the identified friction points.
+Final comment **x**, **x**, and **x**  
 """)
 
 
@@ -508,6 +534,7 @@ elif st.session_state.current_page_key == "Downloads & Resources":
 # Este apartado es para quien no haya asistido o quiera más información, se pueda descargar un resumen y todos los datos limpios y procesados
 # En este caso, el código está preparado para descargar lo que hay a modo de ejemplo dentro de la carpeta de data, la subcarpeta de reports (hay 2 pdfs) y las subcarpetas de raw y processed (con df a modo de ejemplo)
 # Hay que ir las subcarpetas de reports, processed y raw, cambiar esos archivos por los nuevos (en los reports manenter el mismo nombre, en los de data processed/raw adatpar el código al nuevo nombre)
+# Ahora mismo hay dos pdf, 3 archivos en processed y 4 en raw, son de otro proyecto a modo de ejemplo, pero habría que reemplzarlo todo
 
     st.title("📂 Downloads & Resources")
 
