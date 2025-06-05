@@ -8,13 +8,12 @@ import numpy as np
 import datetime
 import zipfile
 import base64
+import time
 import io
 import os
 
-
 # Para ejecutar, primero en la terminal: pip install -r requirements.txt
 # Después: streamlit run app.py
-
 
 # Configuración de la Página
 st.set_page_config(
@@ -292,7 +291,7 @@ if st.session_state.current_page_key == "Overview":
             st.image("assets/image1.png", use_container_width=True)
 
 
-elif st.session_state.current_page_key == "Interactive Analysis":
+elif st.session_state.current_page_key == "Interactive Analysis": # En este apartado tenemos unos gráficos interactivos importados desde Tableau a modo de ejemplo, pero se pueden importar gráficos y tablas creadas con pyton, con Power BI, etc.
     st.title("Interactive Analysis")
 
     # Pestañas principales: Demographics vs KPIs
@@ -302,8 +301,8 @@ elif st.session_state.current_page_key == "Interactive Analysis":
     with demo_tab:
         st.subheader("Demographics Overview")
         components.iframe(
-            "https://public.tableau.com/views/Clients_17485213608790/Dashboard1"
-            "?:language=es-ES&publish=yes&:showVizHome=no&:embed=y",
+            url_no_cache("https://public.tableau.com/views/Clients_17485213608790/Dashboard1"
+            "?:language=es-ES&publish=yes&:showVizHome=no&:embed=y"),
             height=700,
             scrolling=True,
         )
