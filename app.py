@@ -289,7 +289,7 @@ if st.session_state.current_page_key == "Overview":
     👉 Join us in this analysis to discover X.
             """)
         with right_col: # Aquí puedes incluir una imagen que pongas en la carpeta de assets y titules image1
-            st.image("assets/image1.png", use_column_width=True)
+            st.image("assets/image1.png", use_container_width=True)
 
 
 elif st.session_state.current_page_key == "Interactive Analysis":
