@@ -471,7 +471,7 @@ Control had an error rate of **0.19%**, while Test reduced this to **0.07%**, in
 elif st.session_state.current_page_key == "Statistics":
     st.title("Statistics")
 
-elif st.session_state.current_page_key == "ML/DP": # Si solo hay ML, quitar lo de DP
+elif st.session_state.current_page_key == "ML/DP": # Si solo hay ML, quitar del título DP
     st.title("ML / Deep Learning")
     
 elif st.session_state.current_page_key == "Conclusions":
