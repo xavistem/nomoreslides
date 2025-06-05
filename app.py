@@ -27,6 +27,7 @@ st.set_page_config(
 # CONTENIDO DE LA SIDEBAR
 with st.sidebar:
     # 1. Logo (en style='width y height' se puede ajustar), cambiar el logo de la carpeta de assets y cambiar en la siguiente línea de código el nombre del archivo después de assets/
+    # Es mejor usar el logo con el fondo transparente. It is better to use a png with a transparent background
     logo_path = "assets/logo-vanguard.png"
     try:
         with open(logo_path, "rb") as image_file:
