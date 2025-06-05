@@ -6,8 +6,7 @@
 ## Table of Contents
 1. [Introduction](#introduction)  
 2. [Features](#features)  
-3. [Live Preview](#live-preview)  
-   - [Important Notice](#important-notice)  
+3. [Live Preview](#live-preview)   
 4. [Getting Started](#getting-started)  
    - [Prerequisites](#prerequisites)  
    - [Installation & Running Locally](#installation--running-locally)  
@@ -19,16 +18,15 @@
    - [Machine Learning & Statistics](#machine-learning--statistics)  
 6. [Customization & Theming](#customization--theming)  
 7. [Why “No More Slides”?](#why-no-more-slides)  
-   - [Communication Focus](#communication-focus)  
-8. [Tips, Notes & Important](#tips-notes--important)  
-9. [Contributing](#contributing)  
-10. [License](#license)  
-11. [Authors](#authors)  
+   - [Communication Focus](#communication-focus)   
+8. [Contributing](#contributing)  
+9. [License](#license)  
+10. [Authors](#authors)  
 
 ---
 
 ## Introduction
-**No More Slides** is an MIT-licensed, open-source Streamlit template designed for any data-focused role—Data Analyst, Data Scientist, Data Engineer, ML Engineer, BI Developer, etc.—to **present an entire project** (introduction, data cleaning, EDA, dashboards, ML, statistics, conclusions) within a single web app. Instead of building multiple slide decks, use this template to keep your audience engaged and focus on **communicating your insights**, not formatting slides.
+**No More Slides** is an MIT-licensed, open-source Streamlit template designed for any data-focused role (Data Analyst, Data Scientist, Data Engineer, ML Engineer, BI Developer, etc) to **present an entire project** (introduction, data cleaning, EDA, dashboards, ML, statistics, conclusions) within a single web app. Instead of building multiple slide decks, use this template to keep your audience engaged and focus on **communicating your insights**, not formatting slides.
 
 ---
 
@@ -42,7 +40,7 @@
 - **Interactive Dashboards**: Pre-built charts (line, bar, pie), maps (via PyDeck), KPI cards, filters, and layout components (`st.columns`, `st.expander`, `st.tabs`).  
 - **ML & Statistics Scaffolding**: Code sections to split data, train basic models (e.g., logistic regression, random forest), display performance metrics (accuracy, ROC, confusion matrix) and residual plots.  
 - **Commented Guidance (ES/EN)**: Every major block in `app.py` is annotated in Spanish and English, guiding you on where to customize.  
-- **Light-Friendly UI (Default)**: Designed for a light background. Optional dark mode via Streamlit’s theme settings.  
+- **Light-Friendly UI (Default)**: Designed for a light background.
 
 ---
 
@@ -50,18 +48,15 @@
 View a blank version of this template (no sample data) on Streamlit Community:  
 **http://nomoreslides.streamlit.app/**  
 
-<details>
-  <summary>Important Notice</summary>
+> [!TIP] 
+> If the app has been idle, you may see:
+```
+ZZZ This app has gone to sleep due to inactivity. Would you like to wake it back up?
+```  
+Click **“Yes, get this app back up!”** to continue.  
 
-  [!IMPORTANT]  
-  If the app has been idle, you may see:  
-  ```
-  ZZZ This app has gone to sleep due to inactivity. Would you like to wake it back up?
-  ```  
-  Click **“Yes, get this app back up!”** to continue.  
+This preview is for visualization purposes only. To use the template, fork the repository and either run the app locally or deploy it using your own Streamlit account.
 
-  **Tip:** To avoid waiting, deploy locally using the steps below.
-</details>
 
 ---
 
@@ -87,10 +82,7 @@ View a blank version of this template (no sample data) on Streamlit Community:
    ```bash
    streamlit run app.py
    ```  
-   Keep the terminal open—any edits in `app.py` auto-refresh in your browser when you press **F5**.
-
-> [!TIP]  
-> The two-step install/run process ensures instant local previews without cloud delays.
+   Keep the terminal open after running streamlit run app.py. Any changes you make to app.py will auto-refresh—just press **F5** in your browser to see the updates.
 
 ### App Structure & Comments
 - **`app.py`**  
@@ -112,9 +104,6 @@ View a blank version of this template (no sample data) on Streamlit Community:
 - Display your name, role/title, location, a brief bio, and clickable badges for GitHub, LinkedIn, or portfolio.  
 - Optionally, include a PyDeck map with pins (e.g., hometown, HQ).
 
-> [!NOTE]  
-> You can adjust map style (light/dark), marker colors, and initial view in the `st.pydeck_chart()` call.
-
 ### Data Upload & Automated EDA
 - Use `st.file_uploader` to accept CSV (or similar).  
 - Automatically perform:  
@@ -123,17 +112,11 @@ View a blank version of this template (no sample data) on Streamlit Community:
   3. Initial plots: histograms, boxplots, correlation heatmap.  
   4. Cleaned data preview in an interactive table.
 
-> [!TIP]  
-> Extend cleaning functions for other file types (Excel, JSON) or custom transformations.
-
 ### Dashboards & Analysis
 - Create KPI cards (`st.metric`) showing total records, null percentages, unique categories.  
 - Add user-driven filters (dropdowns, sliders) to update charts dynamically.  
 - Display PyDeck or Folium maps for geospatial insights.  
 - Organize layout with `st.columns`, `st.expander`, and `st.tabs` for a polished look.
-
-> [!NOTE]  
-> For complex dashboards, consider modularizing code into separate Python modules.
 
 ### Machine Learning & Statistics
 - Prebuilt code to:  
@@ -143,23 +126,13 @@ View a blank version of this template (no sample data) on Streamlit Community:
   4. Plot confusion matrix, ROC curve, residuals, and feature importance.  
 - Use `st.markdown()` to explain your modeling choices, hyperparameters, and evaluation.
 
-> [!TIP]  
-> Swap in any library (scikit-learn, XGBoost, LightGBM, TensorFlow) by importing at the top of the ML section.
-
 ---
 
 ## Customization & Theming
+This template is designed to work best in light mode for optimal readability. If you're running the app locally or on Streamlit Cloud, make sure to switch to light mode for the best visual experience.
+
+If you prefer dark mode, feel free to adjust component styles in `app.py` if needed (e.g., chart backgrounds, map styles).
 By default, the template uses a light theme for readability. To switch to dark mode:
-
-1. Create or edit `.streamlit/config.toml`:
-   ```toml
-   [theme]
-   base="dark"
-   ```
-2. Adjust component styles in `app.py` if needed (e.g., chart backgrounds, map styles).
-
-> [!TIP]  
-> If you prefer dark mode, update PyDeck’s `map_style` to `"mapbox://styles/mapbox/dark-v10"` and adjust any light-colored text or backgrounds.
 
 ---
 
@@ -170,23 +143,8 @@ We believe **effective storytelling** and clear communication of data insights a
 - Keep your audience engaged with **interactive** visualizations.  
 - Concentrate on explaining methodology, results, and impact—rather than formatting slides.
 
-> [!NOTE]  
-> We are not against slides—many scenarios (board meetings, academic talks) benefit from a traditional deck. If you prefer slides, please continue. But if you want a **single, interactive presentation**, this template is for you.
-
----
-
-## Tips, Notes & Important
-> [!TIP]  
-> **App Wake-Up**: When using Streamlit Community, if the app sleeps, click “Yes, get this app back up!” to wake it.
-
-> [!NOTE]  
-> **Bilingual Comments**: All code in `app.py` is annotated in Spanish and English. Feel free to remove or translate as needed.
-
 > [!IMPORTANT]  
-> **Instant Refresh**: Keep your terminal open after `streamlit run app.py`. Hit **F5** in the browser after any code change to see updates immediately.
-
-> [!TIP]  
-> **Large Datasets**: For files >100 MB, consider sampling or preprocessing offline—large DataFrames can slow Streamlit’s display.
+> We are not against slides—many scenarios (board meetings, academic talks) benefit from a traditional deck. If you prefer slides, please continue. But if you want a **single, interactive presentation**, this template is for you.
 
 ---
 
@@ -214,8 +172,14 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 
 ---
 
-## Authors
-*(Add your name, role, and contact info here)*  
+## Authors  
+[![Rocío](https://img.shields.io/badge/@JimenezRoDA-GitHub-181717?logo=github&style=flat-square)](https://github.com/JimenezRoDA)  
+[![Xavi](https://img.shields.io/badge/@xavistem-GitHub-181717?logo=github&style=flat-square)](https://github.com/xavistem)
 
--  
--  
+---
+
+![Python](https://img.shields.io/badge/Python-3.12.7-blue?logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
+![Status](https://img.shields.io/badge/Status-Finished-brightgreen)
+
+[🔝 Back to top](#table-of-contents)
