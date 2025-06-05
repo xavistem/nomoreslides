@@ -26,7 +26,7 @@ st.set_page_config(
 # CONTENIDO DE LA SIDEBAR
 with st.sidebar:
     # 1. Logo (en style='width y height' se puede ajustar), cambiar el logo de la carpeta de assets y que tenga el título de logo
-    # Es mejor usar el logo con el fondo transparente. It is better to use a png with a transparent background
+    # Es mejor usar el logo con el fondo transparente
     logo_path = "assets/logo.png"
     try:
         with open(logo_path, "rb") as image_file:
@@ -301,8 +301,8 @@ elif st.session_state.current_page_key == "Interactive Analysis": # En este apar
     with demo_tab:
         st.subheader("Demographics Overview")
         components.iframe(
-            url_no_cache("https://public.tableau.com/views/Clients_17485213608790/Dashboard1"
-            "?:language=es-ES&publish=yes&:showVizHome=no&:embed=y"),
+            "https://public.tableau.com/views/Clients_17485213608790/Dashboard1"
+            "?:language=es-ES&publish=yes&:showVizHome=no&:embed=y",
             height=700,
             scrolling=True,
         )
