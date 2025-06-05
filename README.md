@@ -1,4 +1,6 @@
-# No More Slides  
+<img src="https://github.com/user-attachments/assets/d5e48ea7-86f4-4203-809b-4076e11f4df4" width="200" height="200" />
+<a name="top"></a>
+
 *An all-in-one Streamlit template for data professionals to present entire projects without slides*
 
 ---
@@ -182,4 +184,4 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
 ![Status](https://img.shields.io/badge/Status-Finished-brightgreen)
 
-[🔝 Back to top](#table-of-contents)
+[🔝 Back to top](#top)
