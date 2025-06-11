@@ -68,7 +68,7 @@ This preview is for visualization purposes only. To use the template, fork the r
 - **Python 3.8+**  
 - **pip**  
 - (Optional) **Git** for version control  
-- Recommended: a virtual environment (`venv`, `conda`, etc.)
+- Recommended: a virtual environment (`venv`, `conda`, `virtualenv`, etc.)
 
 ### Installation & Running Locally
 1. **Clone the repository**  
